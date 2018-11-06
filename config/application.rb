@@ -16,5 +16,18 @@ module MyApp
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
     config.i18n.default_locale = :es
 
+
+    config.middleware.insert_before 0, Rack::Cors do
+
+      allow do
+      
+      origins '*'
+      
+      resource '*', headers: :any, methods: [:get, :post, :options]
+      
+      end
+      
+      end
+
   end
 end

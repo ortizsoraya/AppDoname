@@ -6,8 +6,8 @@ module Api
             before_action :authenticate_request!
 
             def index
-                images2 = Image.order('created_at DESC');
-                render json: {status: 'SUCCESS', message: 'Carga de imagenes', data: images2}, status: :ok
+                images = Image.order('created_at DESC');
+                render json: {status: 'SUCCESS', message: 'Carga de imagenes', data: images}, status: :ok
             end
 
             def show

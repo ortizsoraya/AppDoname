@@ -15,13 +15,13 @@ module Api
                 
                 else
                 
-                render json: {errors: ['Password invalido' ]}, status: :unauthorized
+                 render json: {errors: ['Password invalido' ]}, status: :unauthorized
                 
                 end
                 
                 else
                 
-                    render json: {errors: ['Isuario invalido']}, status: :unauthorized
+                render json: {errors: ['Isuario invalido']}, status: :unauthorized
                 
                 end
   
@@ -30,17 +30,11 @@ module Api
             private
 
             def payload(user)
-
-             return nil unless user and user.id
-                    {
-
-                        auth_token: JsonWebToken.encode({user_id: user.id}),
-
-                        user: {id: user.id, email: user.email, name: user.name}
-
-                    }
-
-            end  
+                return nil unless user and user.id 
+                {
+                    user: {id: user.id, email: user.email, name: user.name, auth_token: JsonWebToken.encode({user_id: user.id})}
+                }
+            end 
         end
     end
 end

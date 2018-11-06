@@ -12,6 +12,12 @@ Rails.application.routes.draw do
     
       post 'auth_user' => 'authentication#authenticate_user'
       resources :images
+      post "sign_up" => 'registration#create'
+      resources :locations
+      resources :products
+      resources :sales
+      resources :news
+      resources :contacts
     end
     
   end
